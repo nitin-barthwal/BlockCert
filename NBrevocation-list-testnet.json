@@ -1,6 +1,6 @@
 {
   "@context": "https://w3id.org/openbadges/v2",
-  "id": "https://w3id.org/blockcerts/samples/2.0/NBrevocation-list-testnet.json",
+  "id": "https://github.com/nitin-barthwal/BlockCert/blob/main/NBrevocation-list-testnet.json",
   "type": "RevocationList",
   "issuer": "https://w3id.org/blockcerts/samples/2.0/NBissuer-testnet.json",
   "revokedAssertions": [
