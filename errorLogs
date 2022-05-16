@@ -1,0 +1,175 @@
+>docker build --target debug -t docker-flask-test:debug3 .
+[+] Building 59.7s (8/11)
+ => [internal] load build definition from Dockerfile                                                 0.0s 
+ => => transferring dockerfile: 1.67kB                                                               0.0s 
+ => [internal] load .dockerignore                                                                    0.0s 
+ => => transferring context: 34B                                                                     0.0s 
+ => [internal] load metadata for docker.io/seegno/bitcoind:0.13-alpine                               0.0s 
+ => [internal] load build context                                                                    0.1s 
+ => => transferring context: 13.61kB                                                                 0.1s 
+ => CACHED [base 1/6] FROM docker.io/seegno/bitcoind:0.13-alpine                                     0.0s 
+ => [base 2/6] COPY issuer /cert-issuer                                                              0.1s 
+ => [base 3/6] COPY cert-tools /cert-tools                                                           0.2s 
+ => ERROR [base 4/6] RUN apk add --update     bash     ca-certificates     curl     gcc     gmp-de  59.1s 
+------
+ > [base 4/6] RUN apk add --update     bash     ca-certificates     curl     gcc     gmp-dev     libffi-dev     libressl-dev     linux-headers     make     musl-dev     python     python3     python3-dev     tar 
+    g++    libxslt-dev     && python3 -m ensurepip     && pip3 install --upgrade pip setuptools     && mkdir -p /etc/cert-issuer/data/unsigned_certificates     && mkdir /etc/cert-issuer/data/blockchain_certificates     && mkdir ~/.bitcoin     && echo $'rpcuser=foo\nrpcpassword=bar\nrpcport=8332\nregtest=1\nrelaypriority=0\nrpcallowip=127.0.0.1\nrpcconnect=127.0.0.1\n' > /root/.bitcoin/bitcoin.conf     && pip3 install chainpoint>=0.0.2     && sed -i.bak s/==1.0b1/>=1.0.2/g /usr/lib/python3.*/site-packages/merkletools-1.0.2-py3.*.egg-info/requires.txt     && pip3 install /cert-tools/.     && pip3 install /cert-issuer/.     && python3 setup.py experimental --blockchain=ethereum     && rm -r /usr/lib/python*/ensurepip     && rm -rf /var/cache/apk/*     && rm -rf /root/.cache:
+#8 0.649 fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/main/x86_64/APKINDEX.tar.gz
+#8 1.542 fetch http://dl-cdn.alpinelinux.org/alpine/v3.6/community/x86_64/APKINDEX.tar.gz
+#8 2.239 (1/50) Upgrading musl (1.1.16-r13 -> 1.1.16-r15)
+#8 2.360 (2/50) Upgrading libressl2.5-libcrypto (2.5.5-r0 -> 2.5.5-r2)
+#8 2.544 (3/50) Upgrading libressl2.5-libssl (2.5.5-r0 -> 2.5.5-r2)
+#8 2.624 (4/50) Installing ncurses-terminfo-base (6.0_p20171125-r1)
+#8 2.681 (5/50) Installing ncurses-terminfo (6.0_p20171125-r1)
+#8 3.554 (6/50) Installing ncurses-libs (6.0_p20171125-r1)
+#8 3.638 (7/50) Installing readline (6.3.008-r5)
+#8 3.702 (8/50) Installing bash (4.3.48-r1)
+#8 3.797 Executing bash-4.3.48-r1.post-install
+#8 3.804 (9/50) Installing ca-certificates (20161130-r3)
+#8 3.897 (10/50) Installing libssh2 (1.8.2-r0)
+#8 3.959 (11/50) Installing libcurl (7.61.1-r2)
+#8 4.057 (12/50) Installing curl (7.61.1-r2)
+#8 4.129 (13/50) Installing binutils-libs (2.30-r1)
+#8 4.313 (14/50) Installing binutils (2.30-r1)
+#8 4.614 (15/50) Installing gmp (6.1.2-r0)
+#8 4.696 (16/50) Installing isl (0.17.1-r0)
+#8 4.876 (17/50) Installing libgomp (6.3.0-r4)
+#8 4.926 (18/50) Installing libatomic (6.3.0-r4)
+#8 4.966 (19/50) Installing pkgconf (1.3.7-r0)
+#8 5.018 (20/50) Installing mpfr3 (3.1.5-r0)
+#8 5.088 (21/50) Installing mpc1 (1.0.3-r0)
+#8 5.142 (22/50) Installing gcc (6.3.0-r4)
+#8 7.353 (23/50) Installing musl-dev (1.1.16-r15)
+#8 7.736 (24/50) Installing libc-dev (0.7.1-r0)
+#8 7.772 (25/50) Installing g++ (6.3.0-r4)
+#8 9.537 (26/50) Installing libgmpxx (6.1.2-r0)
+#8 9.577 (27/50) Installing gmp-dev (6.1.2-r0)
+#8 9.679 (28/50) Upgrading musl-utils (1.1.16-r13 -> 1.1.16-r15)
+#8 9.731 (29/50) Installing libffi (3.2.1-r3)
+#8 9.778 (30/50) Installing libffi-dev (3.2.1-r3)
+#8 9.824 (31/50) Upgrading libressl2.5-libtls (2.5.5-r0 -> 2.5.5-r2)
+#8 9.875 (32/50) Installing libressl-dev (2.5.5-r2)
+#8 10.30 (33/50) Installing libgpg-error (1.27-r0)
+#8 10.35 (34/50) Installing libgcrypt (1.7.10-r0)
+#8 10.48 (35/50) Installing libxml2 (2.9.8-r1)
+#8 10.63 (36/50) Installing libxslt (1.1.29-r4)
+#8 10.72 (37/50) Installing zlib-dev (1.2.11-r0)
+#8 10.78 (38/50) Installing libxml2-dev (2.9.8-r1)
+#8 10.87 (39/50) Installing libxslt-dev (1.1.29-r4)
+#8 10.98 (40/50) Installing linux-headers (4.4.6-r2)
+#8 11.46 (41/50) Installing make (4.2.1-r0)
+#8 11.54 (42/50) Installing libbz2 (1.0.6-r5)
+#8 11.60 (43/50) Installing expat (2.2.0-r1)
+#8 11.66 (44/50) Installing gdbm (1.12-r0)
+#8 11.73 (45/50) Installing sqlite-libs (3.25.3-r0)
+#8 11.87 (46/50) Installing python2 (2.7.15-r0)
+#8 12.87 (47/50) Installing xz-libs (5.2.3-r0)
+#8 12.92 (48/50) Installing python3 (3.6.8-r0)
+#8 14.34 (49/50) Installing python3-dev (3.6.8-r0)
+#8 14.73 (50/50) Installing tar (1.32-r0)
+#8 14.79 Executing busybox-1.26.2-r5.trigger
+#8 14.79 Executing ca-certificates-20161130-r3.trigger
+#8 14.86 OK: 320 MiB in 70 packages
+#8 17.22 Looking in links: /tmp/tmpwr1h6hg9
+#8 17.23 Requirement already satisfied: setuptools in /usr/lib/python3.6/site-packages (40.6.2)
+#8 17.25 Requirement already satisfied: pip in /usr/lib/python3.6/site-packages (18.1)
+#8 18.43 Collecting pip
+#8 18.96   Downloading https://files.pythonhosted.org/packages/a4/6d/6463d49a933f547439d6b5b98b46af8742cc03ae83543e4d7688c2420f8b/pip-21.3.1-py3-none-any.whl (1.7MB)
+#8 20.67 Collecting setuptools
+#8 21.66   Downloading https://files.pythonhosted.org/packages/b0/3a/88b210db68e56854d0bcf4b38e165e03be377e13907746f825790f3df5bf/setuptools-59.6.0-py3-none-any.whl (952kB)
+#8 22.11 Installing collected packages: pip, setuptools
+#8 22.11   Found existing installation: pip 18.1
+#8 22.27     Uninstalling pip-18.1:
+#8 22.43       Successfully uninstalled pip-18.1
+#8 24.32   Found existing installation: setuptools 40.6.2
+#8 24.36     Uninstalling setuptools-40.6.2:
+#8 24.39       Successfully uninstalled setuptools-40.6.2
+#8 25.16 Successfully installed pip-21.3.1 setuptools-59.6.0
+#8 35.33 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv
+#8 37.23 Processing /cert-tools
+#8 37.23   Preparing metadata (setup.py): started
+#8 37.77   Preparing metadata (setup.py): finished with status 'done'
+#8 38.22 Collecting cert-core>=2.1.10
+#8 38.44   Downloading cert-core-2.1.10.tar.gz (11 kB)
+#8 38.50   Preparing metadata (setup.py): started
+#8 39.34   Preparing metadata (setup.py): finished with status 'done'
+#8 39.55 Collecting cert-schema>=3.0.0a9
+#8 39.60   Downloading cert_schema-3.1.0-py3-none-any.whl (69 kB)
+#8 39.80 Collecting configargparse
+#8 39.85   Downloading ConfigArgParse-1.5.3-py3-none-any.whl (20 kB)
+#8 39.98 Collecting jsonpath-rw>=1.4.0
+#8 40.03   Downloading jsonpath-rw-1.4.0.tar.gz (13 kB)
+#8 40.07   Preparing metadata (setup.py): started
+#8 40.78   Preparing metadata (setup.py): finished with status 'done'
+#8 40.90 Collecting jsonschema
+#8 40.94   Downloading jsonschema-3.2.0-py2.py3-none-any.whl (56 kB)
+#8 41.18 Collecting pycoin>=0.80
+#8 41.26   Downloading pycoin-0.92.20220213.tar.gz (343 kB)
+#8 41.81   Installing build dependencies: started
+#8 48.16   Installing build dependencies: finished with status 'done'
+#8 48.17   Getting requirements to build wheel: started
+#8 48.94   Getting requirements to build wheel: finished with status 'done'
+#8 48.95   Preparing metadata (pyproject.toml): started
+#8 49.71   Preparing metadata (pyproject.toml): finished with status 'done'
+#8 50.20 Collecting tox>=3.0.0
+#8 50.25   Downloading tox-3.25.0-py2.py3-none-any.whl (85 kB)
+#8 50.71 Collecting coincurve==7.1.0
+#8 50.75   Downloading coincurve-7.1.0.tar.gz (911 kB)
+#8 51.28   Preparing metadata (setup.py): started
+#8 58.81   Preparing metadata (setup.py): finished with status 'error'
+#8 58.81   ERROR: Command errored out with exit status 1:
+#8 58.81    command: /usr/bin/python3.6 -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-awx5i8y6/coincurve_610f21d5ea2d4b8d9225c704e54388d5/setup.py'"'"'; __file__='"'"'/tmp/pip-install-awx5i8y6/coincurve_610f21d5ea2d4b8d9225c704e54388d5/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-6zjj8bpv
+#8 58.81        cwd: /tmp/pip-install-awx5i8y6/coincurve_610f21d5ea2d4b8d9225c704e54388d5/
+#8 58.81   Complete output (47 lines):
+#8 58.81   /usr/lib/python3.6/site-packages/setuptools/installer.py:30: SetuptoolsDeprecationWarning: setuptools.installer is deprecated. Requirements should be satisfied by a PEP 517 installer.
+#8 58.81     SetuptoolsDeprecationWarning,
+#8 58.81   WARNING: The wheel package is not available.
+#8 58.81   WARNING: The wheel package is not available.
+#8 58.81     ERROR: Command errored out with exit status 1:
+#8 58.81      command: /usr/bin/python3.6 -u -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-wheel-4l4wk7zv/cffi_82704a14616b47a988efa7536d42d0ca/setup.py'"'"'; __file__='"'"'/tmp/pip-wheel-4l4wk7zv/cffi_82704a14616b47a988efa7536d42d0ca/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' bdist_wheel -d /tmp/pip-wheel-9te5d1cf
+#8 58.81          cwd: /tmp/pip-wheel-4l4wk7zv/cffi_82704a14616b47a988efa7536d42d0ca/
+#8 58.81     Complete output (6 lines):
+#8 58.81     usage: setup.py [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+#8 58.81        or: setup.py --help [cmd1 cmd2 ...]
+#8 58.81        or: setup.py --help-commands
+#8 58.81        or: setup.py cmd --help
+#8 58.81
+#8 58.81     error: invalid command 'bdist_wheel'
+#8 58.81     ----------------------------------------
+#8 58.81     ERROR: Failed building wheel for cffi
+#8 58.81   ERROR: Failed to build one or more wheels
+#8 58.81   Traceback (most recent call last):
+#8 58.81     File "/usr/lib/python3.6/site-packages/setuptools/installer.py", line 82, in fetch_build_egg 
+#8 58.81       subprocess.check_call(cmd)
+#8 58.81     File "/usr/lib/python3.6/subprocess.py", line 311, in check_call
+#8 58.81       raise CalledProcessError(retcode, cmd)
+#8 58.81   subprocess.CalledProcessError: Command '['/usr/bin/python3.6', '-m', 'pip', '--disable-pip-version-check', 'wheel', '--no-deps', '-w', '/tmp/tmpqrg6w44b', '--quiet', 'cffi>=1.3.0']' returned non-zero exit status 1.
+#8 58.81
+#8 58.81   The above exception was the direct cause of the following exception:
+#8 58.81
+#8 58.81   Traceback (most recent call last):
+#8 58.81     File "<string>", line 1, in <module>
+#8 58.81     File "/tmp/pip-install-awx5i8y6/coincurve_610f21d5ea2d4b8d9225c704e54388d5/setup.py", line 314, in <module>
+#8 58.81       **setup_kwargs
+#8 58.81     File "/usr/lib/python3.6/site-packages/setuptools/__init__.py", line 152, in setup
+#8 58.81       _install_setup_requires(attrs)
+#8 58.81     File "/usr/lib/python3.6/site-packages/setuptools/__init__.py", line 147, in _install_setup_requires
+#8 58.81       dist.fetch_build_eggs(dist.setup_requires)
+#8 58.81     File "/usr/lib/python3.6/site-packages/setuptools/dist.py", line 815, in fetch_build_eggs    
+#8 58.81       replace_conflicting=True,
+#8 58.81     File "/usr/lib/python3.6/site-packages/pkg_resources/__init__.py", line 773, in resolve      
+#8 58.81       replace_conflicting=replace_conflicting
+#8 58.81     File "/usr/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1056, in best_match  
+#8 58.81       return self.obtain(req, installer)
+#8 58.81     File "/usr/lib/python3.6/site-packages/pkg_resources/__init__.py", line 1068, in obtain      
+#8 58.81       return installer(requirement)
+#8 58.81     File "/usr/lib/python3.6/site-packages/setuptools/dist.py", line 883, in fetch_build_egg     
+#8 58.81       return fetch_build_egg(self, req)
+#8 58.81     File "/usr/lib/python3.6/site-packages/setuptools/installer.py", line 84, in fetch_build_egg 
+#8 58.81       raise DistutilsError(str(e)) from e
+#8 58.81   distutils.errors.DistutilsError: Command '['/usr/bin/python3.6', '-m', 'pip', '--disable-pip-version-check', 'wheel', '--no-deps', '-w', '/tmp/tmpqrg6w44b', '--quiet', 'cffi>=1.3.0']' returned non-zero exit status 1.
+#8 58.81   ----------------------------------------
+#8 58.81 WARNING: Discarding https://files.pythonhosted.org/packages/cf/d0/f51a2a13217e8d21a033ec495770e9cde748ee1eef2182e9aa234c6a91bb/coincurve-7.1.0.tar.gz#sha256=7eaaa1d73084ed3436d64096dd8a22fd76a58f3cdbf5e3e3b949e73e694e17b6 (from https://pypi.org/simple/coincurve/). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+#8 58.81 ERROR: Could not find a version that satisfies the requirement coincurve==7.1.0 (from cert-tools) (from versions: 4.4.0, 4.4.1, 4.5.1, 5.0.0, 5.0.1, 5.1.0, 5.2.0, 6.0.0, 7.0.0, 7.1.0, 8.0.0, 8.0.2rc1, 8.0.2rc2, 8.0.2rc3, 8.0.2, 9.0.0, 10.0.0, 11.0.0, 12.0.0, 13.0.0rc1, 13.0.0, 14.0.0, 15.0.0, 15.0.1, 16.0.0)#8 58.81 ERROR: No matching distribution found for coincurve==7.1.0
+------
+executor failed running [/bin/sh -c apk add --update     bash     ca-certificates     curl     gcc     gmp-dev     libffi-dev     libressl-dev     linux-headers     make     musl-dev     python     python3     python3-dev     tar     g++    libxslt-dev     && python3 -m ensurepip     && pip3 install --upgrade pip setuptools     && mkdir -p /etc/cert-issuer/data/unsigned_certificates     && mkdir /etc/cert-issuer/data/blockchain_certificates     && mkdir ~/.bitcoin     && echo $'rpcuser=foo\nrpcpassword=bar\nrpcport=8332\nregtest=1\nrelaypriority=0\nrpcallowip=127.0.0.1\nrpcconnect=127.0.0.1\n' > /root/.bitcoin/bitcoin.conf     && pip3 install chainpoint>=0.0.2     && sed -i.bak s/==1\.0b1/\>=1\.0\.2/g /usr/lib/python3.*/site-packages/merkletools-1.0.2-py3.*.egg-info/requires.txt     && pip3 install /cert-tools/.     && pip3 install /cert-issuer/.     && python3 setup.py experimental --blockchain=ethereum     && rm -r /usr/lib/python*/ensurepip     && rm -rf /var/cache/apk/*     && rm -rf /root/.cache]: exit code: 1
